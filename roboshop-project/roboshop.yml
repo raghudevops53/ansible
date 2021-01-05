@@ -6,4 +6,4 @@
         name: cart
     - name: Load Catalogue Role
       import_role:
-        name: Catalogue
+        name: catalogue

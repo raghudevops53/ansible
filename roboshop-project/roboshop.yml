@@ -1,5 +1,9 @@
 - name: Setup RoboShop Project
   hosts: all
   roles:
-    - cart
-    - catalogue
+    - name: Load Cart Role
+      import_role:
+        name: cart
+    - name: Load Catalogue Role
+      import_role:
+        name: Catalogue

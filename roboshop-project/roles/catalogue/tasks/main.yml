@@ -1,0 +1,4 @@
+- name: Component name
+  debug:
+    msg: "Catalogue"
+    

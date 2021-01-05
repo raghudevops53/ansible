@@ -5,3 +5,11 @@
       ansible.builtin.debug:
         msg: "{{ansible_fqdn}}"
 
+- name: DEMO ON FACTS
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Print the hostname
+      ansible.builtin.debug:
+        msg: "{{ansible_fqdn}}"
+

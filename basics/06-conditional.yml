@@ -9,4 +9,3 @@
       debug:
         msg: "OS HOSTNAME NAME = {{ansible_fqdn}}"
       when: ansible_os_family == "Ubuntu"
-    

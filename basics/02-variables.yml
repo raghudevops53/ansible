@@ -30,7 +30,16 @@
     - vars.yml
   vars:
     URL: vars.sample.com
+  vars_promt:
+    - name: COURSE_NAME
+      prompt: Enter the Course Name
+      private: no
   tasks:
     - name: Print Variable
       ansible.builtin.debug:
         msg: Helloo {{ URL }}
+
+    - name: Print Course
+      ansible.builtin.debug:
+        msg: Welcome to {{ COURSE_NAME }} Training
+

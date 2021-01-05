@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Run a shell command
-      ansible.builtin.shell: uptime
+      ansible.builtin.shell: uname
       register: OUT
 
     - name: Print OUT variable

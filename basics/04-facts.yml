@@ -3,5 +3,5 @@
   tasks:
     - name: Print the hostname
       ansible.builtin.debug:
-        msg: "{{ansible_hostname}}"
+        msg: "{{ansible_fqdn}}"
 

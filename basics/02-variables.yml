@@ -43,3 +43,10 @@
       ansible.builtin.debug:
         msg: Welcome to {{ COURSE_NAME }} Training
 
+
+# vars_files are having more precedence than vars
+
+# Cli variables with -e option are having highest precedence.
+
+# Things to explore.
+# 1. We can define variables in inventory file also, Explore this option.

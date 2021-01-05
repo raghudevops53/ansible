@@ -1,0 +1,12 @@
+- name: Demo on Run time declaring variables
+  hosts: all
+  tasks:
+    - name: Run a shell command
+      ansible.builtin.shell:
+        shell: uptime
+      register: OUT
+
+    - name: Print OUT variable
+      ansible.builtin.debug:
+        msg: "{{OUT}}"
+

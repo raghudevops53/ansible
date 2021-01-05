@@ -30,7 +30,7 @@
     - vars.yml
   vars:
     URL: vars.sample.com
-  vars_promt:
+  vars_prompt:
     - name: COURSE_NAME
       prompt: Enter the Course Name
       private: no

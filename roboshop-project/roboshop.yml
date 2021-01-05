@@ -1,6 +1,6 @@
 - name: Setup RoboShop Project
   hosts: all
-  roles:
+  tasks:
     - name: Load Cart Role
       import_role:
         name: cart

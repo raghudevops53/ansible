@@ -11,9 +11,8 @@
       ansible.builtin.debug:
         msg: Hello {{ URL }}
 
-
     - name: Print Local variable
-      absible.builtin.debug:
+      ansible.builtin.debug:
         - msg: Hello {{ URL }}
       vars:
         URL: tasks.google.com

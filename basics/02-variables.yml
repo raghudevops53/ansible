@@ -10,3 +10,14 @@
     - name: Print the variable again
       ansible.builtin.debug:
         msg: Hello {{ URL }}
+
+
+    - name: Print Local variable
+      absible.builtin.debug:
+        - msg: Hello {{ URL }}
+      vars:
+        URL: tasks.google.com
+
+## Observation:
+# 1. vars declared on Play level can be accessed by any task in the play.
+# 2. One play variables cannot be accessed by another play by default.

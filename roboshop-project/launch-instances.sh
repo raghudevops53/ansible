@@ -20,7 +20,6 @@ if [ -z "$2" ]; then
   esac
 
 else
-
   case $1 in
     launch)
       for component in $2; do
@@ -37,3 +36,4 @@ else
       done
     ;;
   esac
+fi

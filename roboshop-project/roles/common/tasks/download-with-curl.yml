@@ -1,9 +1,19 @@
 - name: Download the artifacts zip file
   shell: curl -s -L -o /tmp/{{COMPONENT}}.zip "{{ARTIFACT_ZIP_URL}}"
 
+- name: Delete {{COMPONENT}} Directory
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
 
-#  $ cd /home/roboshop
-#  $ mkdir cart
-#  $ cd cart
-#  $ unzip /tmp/cart.zip
-#  $ npm install
+- name: Create {{COMPONENT}} Directory
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
+
+- name: Unarchive {{COMPONENT}} on remote machine
+  unarchive:
+    src: /tmp/{{COMPONENT}}.zip
+    dest: /home/roboshop/{{COMPONENT}}
+    remote_src: yes
+

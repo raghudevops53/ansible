@@ -15,11 +15,11 @@
         name: catalogue
       when: component == "catalogue"
 
-#    - name: Load User Role
-#      import_role:
-#        name: user
-#      when: component == "user"
-#
+    - name: Load User Role
+      import_role:
+        name: user
+      when: component == "user"
+
 #    - name: Load Shipping Role
 #      import_role:
 #        name: shipping

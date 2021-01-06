@@ -1,5 +1,7 @@
 - name: Setup RoboShop Project
   hosts: all
+  become: yes
+  # Become is nothing but a sudo in CLI, Also this become can be used in task level also
   tasks:
     - name: Load Cart Role
       import_role:

@@ -1,0 +1,5 @@
+- name: Copy the SystemD service file
+  template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+

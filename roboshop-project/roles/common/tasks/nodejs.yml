@@ -19,4 +19,6 @@
     state: latest
   become_user: roboshop
 
-- name:
+- name: Setup SystemD Service
+  include_tasks: systemd-setup.yml
+

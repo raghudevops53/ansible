@@ -4,8 +4,11 @@
     - name: DevOps Course
       debug:
         msg: "Welcome to DevOps"
-      when: COURSE_NAME == "DevOps"
+      tags:
+        - DevOps
     - name: AWS Course
       debug:
         msg: "Welcome to AWS"
-      when: COURSE_NAME == "AWS"
+      tags:
+        - AWS
+

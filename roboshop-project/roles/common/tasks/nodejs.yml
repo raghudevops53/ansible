@@ -11,5 +11,5 @@
     name: roboshop
 
 - name: Download Artifacts
-  include_tasks: download-with-curl.yaml
+  include_tasks: download-with-curl.yml
 

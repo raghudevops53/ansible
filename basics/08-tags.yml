@@ -6,6 +6,6 @@
         msg: "Welcome to DevOps"
       when: COURSE_NAME == "DevOps"
     - name: AWS Course
-      debeug:
+      debug:
         msg: "Welcome to AWS"
       when: COURSE_NAME == "AWS"

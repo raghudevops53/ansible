@@ -10,11 +10,11 @@
         name: cart
       when: component == "cart"
 
-#    - name: Load Catalogue Role
-#      import_role:
-#        name: catalogue
-#      when: component == "catalogue"
-#
+    - name: Load Catalogue Role
+      import_role:
+        name: catalogue
+      when: component == "catalogue"
+
 #    - name: Load User Role
 #      import_role:
 #        name: user

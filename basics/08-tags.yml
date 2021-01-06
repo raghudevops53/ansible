@@ -1,0 +1,11 @@
+- name: Demo on tags
+  hosts: localhost
+  tasks:
+    - name: DevOps Course
+      debug:
+        msg: "Welcome to DevOps"
+      when: COURSE_NAME == "DevOps"
+    - name: AWS Course
+      debeug:
+        msg: "Welcome to AWS"
+      when: COURSE_NAME == "AWS"

@@ -6,3 +6,7 @@
       - gcc-c++
     state: present
 
+- name: Create Application User
+  user:
+    name: roboshop
+

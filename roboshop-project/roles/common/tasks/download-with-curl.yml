@@ -1,0 +1,9 @@
+- name: Download the artifacts zip file
+  shell: curl -s -L -o /tmp/{{COMPONENT}}.zip "{{ARTIFACT_ZIP_URL}}"
+
+
+#  $ cd /home/roboshop
+#  $ mkdir cart
+#  $ cd cart
+#  $ unzip /tmp/cart.zip
+#  $ npm install

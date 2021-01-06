@@ -1,0 +1,7 @@
+- name: Demo on templates
+  hosts: all
+  tasks:
+    - name: COpy sample.txt file
+      copy:
+        src: sample.txt
+        dest: /tmp/sample.txt

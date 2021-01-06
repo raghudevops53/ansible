@@ -1,6 +1,3 @@
-- name: Download the artifacts zip file
-  shell: curl -s -L -o /tmp/{{COMPONENT}}.zip "{{ARTIFACT_ZIP_URL}}"
-
 - name: Delete {{COMPONENT}} Directory
   file:
     path: /home/roboshop/{{COMPONENT}}
@@ -11,7 +8,7 @@
     path: /home/roboshop/{{COMPONENT}}
     state: directory
 
-- name: Unarchive {{COMPONENT}} on remote machine
+- name: Download and Unarchive {{COMPONENT}} on remote machine
   unarchive:
     src: "{{ARTIFACT_ZIP_URL}}"
     dest: /home/roboshop/{{COMPONENT}}

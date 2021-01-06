@@ -13,3 +13,7 @@
 - name: Download Artifacts
   include_tasks: download-with-curl.yml
 
+- name: Download NodeJS dependencies
+  community.general.npm:
+    path: /home/roboshop/{{COMPONENT}}
+    state: latest

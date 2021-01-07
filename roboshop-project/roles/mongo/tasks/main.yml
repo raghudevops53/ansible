@@ -32,4 +32,8 @@
     remote_src: yes
 
 - name: Load Schema
-  shell: mongo </tmp/catalogue.js ; mongo </tmp/users.js
+  shell: mongo < /tmp/{{ item }}.js
+  loop:
+    - catalogue
+    - users
+

@@ -19,6 +19,12 @@
     cmd: mvn clean package
   become_user: roboshop
 
+- name: Copy {{ COMPONENT }} Jar file
+  copy:
+    src: /home/roboshop/shipping/target/shipping-1.0.jar
+    dest: /home/roboshop/shipping/shipping.jar
+    remote_src: yes
+
 - name: Setup SystemD Service
   include_tasks: systemd-setup.yml
 

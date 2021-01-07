@@ -1,0 +1,29 @@
+- name: Install Nginx
+  yum:
+    name: nginx
+    state: present
+
+- name: Delete old content
+  file:
+    path: /usr/share/nginx
+    state: absent
+
+- name: Create content directory
+  file:
+    path: /usr/share/nginx
+    state: directory
+
+- name: Download and Unarchive {{COMPONENT}} on remote machine
+  unarchive:
+    src: "{{ARTIFACT_ZIP_URL}}"
+    dest: /usr/share/nginx
+    remote_src: yes
+
+- name: Rename content directory
+  shell: mv /usr/share/nginx/static /usr/share/nginx/html
+
+- name: Start Nginx
+  systemd:
+    name: nginx
+    enabled: yes
+    state: restarted

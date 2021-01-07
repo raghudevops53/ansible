@@ -2,7 +2,7 @@
   include_role:
     name: common
     tasks_from: os
-    
+
 - name: Install Nginx
   yum:
     name: nginx

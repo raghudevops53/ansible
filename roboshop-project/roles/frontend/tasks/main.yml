@@ -27,6 +27,11 @@
 - name: Rename content directory
   shell: mv /usr/share/nginx/static /usr/share/nginx/html
 
+- name: Update Nginx Configuration
+  template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
 - name: Start Nginx
   systemd:
     name: nginx

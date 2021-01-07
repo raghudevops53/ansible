@@ -1,0 +1,25 @@
+- name: Setup OS Pre-requisites
+  include_tasks: os.yml
+
+- name: Install Python Packages
+  ansible.builtin.yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: present
+
+- name: Create Application User
+  user:
+    name: roboshop
+
+- name: Download Artifacts
+  include_tasks: download-with-curl.yml
+
+- name: Install Python Packages
+  pip:
+    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+
+- name: Setup SystemD Service
+  include_tasks: systemd-setup.yml
+

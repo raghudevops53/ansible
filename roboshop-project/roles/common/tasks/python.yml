@@ -19,7 +19,7 @@
 - name: Install Python Packages
   pip:
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
-
+    executable: pip-3
 - name: Setup SystemD Service
   include_tasks: systemd-setup.yml
 

@@ -1,0 +1,10 @@
+- name: COpy Mongo repo file
+  template:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Install MongoDB
+  yum:
+    name: mongodb-org
+    state: present
+

@@ -1,0 +1,4 @@
+- name: Include Common Role for Python
+  include_role:
+    name: common
+    tasks_from: python

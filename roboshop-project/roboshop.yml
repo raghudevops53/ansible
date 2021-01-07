@@ -40,7 +40,11 @@
       tags:
         - payment
 
-#    - name: Load Frontend Role
-#      import_role:
-#        name: frontend
-#      when: component == "frontend"
+    - name: Load Frontend Role
+      import_role:
+        name: frontend
+      when: component == "frontend"
+      tags:
+        - frontend
+
+

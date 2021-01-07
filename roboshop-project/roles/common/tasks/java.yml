@@ -1,4 +1,4 @@
-- name: Install NodeJS Packages
+- name: Install Maven Packages
   ansible.builtin.yum:
     name: maven
     state: present

@@ -1,3 +1,8 @@
+- name: Include Common Role for OS Prereqs
+  include_role:
+    name: common
+    tasks_from: os
+
 - name: Copy MySQL repo file
   template:
     src: mysql.repo
@@ -18,4 +23,11 @@
     name: mysqld
     state: started
     enabled: yes
+
+- name: Grab the default root password
+  shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+  register: DEFAULT_PASS
+
+- name: Set the new Password
+  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}';" | mysql -u root -p'{{DEFAULT_PASS.stdout}}'
 

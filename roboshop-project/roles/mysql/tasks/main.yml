@@ -24,10 +24,15 @@
     state: started
     enabled: yes
 
+- name: Check the MySQL Connectivity Using Standard Password
+  shell: echo "show databases;" | mysql -u root -p'{{MYSQL_PASS}}'
+  register: out
+
 - name: Grab the default root password
   shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: DEFAULT_PASS
+  when: out.rc != '0'
 
 - name: Set the new Password
   shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}';" | mysql --connect-expired-password -u root -p'{{DEFAULT_PASS.stdout}}'
-
+  when: out.rc != '0'

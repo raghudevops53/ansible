@@ -34,7 +34,7 @@
   when: out.rc != 0
 
 - name: Set the new Password
-  shell: echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}';" | mysql --connect-expired-password -u root -p'{{DEFAULT_PASS.stdout}}'
+  shell: echo -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '{{MYSQL_PASS}}';\nuninstall plugin validate_password;" | mysql --connect-expired-password -u root -p'{{DEFAULT_PASS.stdout}}'
   when: out.rc != 0
 
 - name: Download and Unarchive {{COMPONENT}} on remote machine

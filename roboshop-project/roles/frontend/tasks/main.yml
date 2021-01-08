@@ -31,9 +31,10 @@
   template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+  notify: Restart Nginx
 
 - name: Start Nginx
   systemd:
     name: nginx
     enabled: yes
-    state: restarted
+    state: started

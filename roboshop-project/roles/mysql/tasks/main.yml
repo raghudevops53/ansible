@@ -1,7 +1,7 @@
 - name: Copy MySQL repo file
   template:
     src: mysql.repo
-    dest: /etc/mysql/mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
 
 - name: Remove MariaDB Libs
   yum:

@@ -28,6 +28,10 @@
   shell: echo "show databases;" | mysql -u root -p'{{MYSQL_PASS}}'
   register: out
 
+- name: print
+  debug:
+    msg: "{{out}}"
+
 - name: Grab the default root password
   shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
   register: DEFAULT_PASS

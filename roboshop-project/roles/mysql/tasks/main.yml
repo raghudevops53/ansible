@@ -27,6 +27,7 @@
 - name: Check the MySQL Connectivity Using Standard Password
   shell: echo "show databases;" | mysql -u root -p'{{MYSQL_PASS}}'
   register: out
+  ignore_errors: yes
 
 - name: Grab the default root password
   shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'

@@ -14,7 +14,7 @@
     name: roboshop
 
 - name: Download Artifacts
-  include_tasks: download-with-curl.yml
+  include_tasks:  download-with-az-artifacts.yml
 
 - name: Install Python Packages
   pip:

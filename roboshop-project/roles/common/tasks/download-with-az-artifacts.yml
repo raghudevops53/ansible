@@ -1,0 +1,33 @@
+- name: Copy Azure repos files
+  template:
+    src: az.repo
+    dest: /etc/yum.repos.d/az.repo
+
+- name: Install Azure CLI
+  yum:
+    name: azure-cli
+    state: present
+
+- name: Install Azure DevOps Exteentions
+  shell: az extension add --name azure-devops
+  become_user: roboshop
+
+- name: Setup PAT for Az CLI
+  shell: echo {{PAT}}  | az devops login
+  become_user: roboshop
+
+- name: Delete {{COMPONENT}} Directory
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: absent
+
+- name: Create {{COMPONENT}} Directory
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
+  become_user: roboshop
+
+- name: Download Artifacts
+  shell: az artifacts universal download --organization "https://dev.azure.com/DevOps-Batches/" --project "f635c088-1047-40e8-8c29-2e3b05a38010" --scope project   --feed "devops53"   --name "{{component}}"   --version "{{APP_ARTIFACT_VERSION}}"   --path .
+  become_user: roboshop
+

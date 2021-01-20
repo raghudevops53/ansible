@@ -2,7 +2,7 @@
   include_tasks: os.yml
 
 - name: Install Maven Packages
-  ansible.builtin.yum:
+  yum:
     name: maven
     state: present
 

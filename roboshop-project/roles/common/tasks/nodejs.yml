@@ -2,7 +2,7 @@
   include_tasks: os.yml
 
 - name: Install NodeJS Packages
-  ansible.builtin.yum:
+  yum:
     name:
       - nodejs
       - make
@@ -17,7 +17,7 @@
   include_tasks:  download-with-az-artifacts.yml
 
 - name: Download NodeJS dependencies
-  community.general.npm:
+  npm:
     path: /home/roboshop/{{COMPONENT}}
     state: latest
   become_user: roboshop
